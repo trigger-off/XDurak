@@ -1,0 +1,29 @@
+{
+  "name": "xdurak",
+  "version": "0.0.1",
+  "description": "Cheat for Durak Online game",
+  "main": "index.js",
+  "scripts": {
+    "spawn": "frida -H $ADBIP -l dist/agent.js -f com.rstgames.durak",
+    "watch": "frida-compile -w -S src/main.ts -o dist/agent.js",
+    "build": "frida-compile -c -S src/main.ts -o dist/agent.js",
+    "attach": "frida -H $ADBIP -l dist/agent.js \"Дурак\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trigger-off/XDurak.git"
+  },
+  "author": "trigger-off",
+  "bugs": {
+    "url": "https://github.com/trigger-off/XDurak/issues"
+  },
+  "homepage": "https://github.com/trigger-off/XDurak",
+  "dependencies": {
+    "@types/frida-gum": "^18.7.1",
+    "@types/node": "^22.8.4",
+    "frida-compile": "^16.4.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}
