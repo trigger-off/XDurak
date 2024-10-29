@@ -1,3 +1,5 @@
+import XDurak from "./XDurak.js";
+
 const runTime = new Date();
 import { CheckBox, DialogBuilder, EditText, LayoutParams, LinearLayout, TextView, View } from './AndroidBasic.js';
 import { Preferences } from "./GDX.js";
@@ -13,6 +15,8 @@ class ModPreferences{
     public preferences: Preferences;
     constructor(instance: Java.Wrapper){
         this.preferences = new Preferences(instance);
+        this.preferences.putString("version",XDurak.VERSION);
+        this.preferences.flush();
     }
     accurate_search: number = 0;
     connect_to_first_game: boolean = false;
