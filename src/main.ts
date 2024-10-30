@@ -13,9 +13,10 @@ function today (date: Date) {
 console.warn("work, runtime: ",today(runTime), timeNow(runTime));
 class ModPreferences{
     public preferences: Preferences;
-    public script_updated: boolean = false;
+    public script_update: {old: number, new: number} = {old: 0, new: Number(XDurak.VERSION)};
     constructor(startActivity: Java.Wrapper){
         this.preferences = new Preferences(startActivity.getPreferences("XDurak"));
+        this.script_update.old = Number(this.preferences.getString("version","0"));
         this.preferences.putString("version",XDurak.VERSION);
         this.preferences.flush();
     }
@@ -598,6 +599,12 @@ Java.perform(() => {
     StartActivity["onCreate"].implementation = function (bundle: Java.Wrapper) {
         mpf = new ModPreferences(this);
         this["onCreate"](bundle);
+        const startActivity = Java.retain(this);
+        if (mpf.script_update.old < mpf.script_update.new) {
+            Java.scheduleOnMainThread(() => {
+                Toast.makeText(startActivity,JString.$new(`XDurak Script: ${mpf.script_update.old} => ${mpf.script_update.new}`), Toast.LENGTH_SHORT.value).show();
+            })
+        }
     };
     StartActivity["p"].implementation = function (click_handler: Java.Wrapper, header: string, positive: string, negative: string, cancelable: boolean) {
         if (click_handler.$className == "com.rstgames.durak.StartActivity$b") {
