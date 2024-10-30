@@ -13,8 +13,9 @@ function today (date: Date) {
 console.warn("work, runtime: ",today(runTime), timeNow(runTime));
 class ModPreferences{
     public preferences: Preferences;
-    constructor(instance: Java.Wrapper){
-        this.preferences = new Preferences(instance);
+    public script_updated: boolean = false;
+    constructor(startActivity: Java.Wrapper){
+        this.preferences = new Preferences(startActivity.getPreferences("XDurak"));
         this.preferences.putString("version",XDurak.VERSION);
         this.preferences.flush();
     }
@@ -345,7 +346,7 @@ Java.perform(() => {
             onMatch(instance){
                 if (instance == null) return;
                 if (instance.getPreferences !== undefined){
-                    mpf = new ModPreferences(instance.getPreferences("XDurak"));
+                    mpf = new ModPreferences(instance);
                     return 'stop'
 
                 }
@@ -595,7 +596,7 @@ Java.perform(() => {
     }
     
     StartActivity["onCreate"].implementation = function (bundle: Java.Wrapper) {
-        mpf = new ModPreferences(this.getPreferences("XDurak"));
+        mpf = new ModPreferences(this);
         this["onCreate"](bundle);
     };
     StartActivity["p"].implementation = function (click_handler: Java.Wrapper, header: string, positive: string, negative: string, cancelable: boolean) {
