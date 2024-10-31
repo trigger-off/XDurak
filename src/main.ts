@@ -638,7 +638,7 @@ Java.perform(() => {
     };
 
     Logger["info"].overload('java.lang.String').implementation = function (str: string) {
-        // console.log(str);
+        console.log(str);
              
         this["info"](str);
     };
@@ -693,6 +693,12 @@ Java.perform(() => {
         // for (let i = 0; i < players; i++) {
         //     matchData.enemy_known_cards[i] = [];
         // }
+        this["a"](str, jSONObject);
+    };
+
+    let game_reset_handler = Java.use("com.rstgames.durak.screens.b$i1");
+    game_reset_handler["a"].implementation = function (str: string, jSONObject: Java.Wrapper) {
+        matchData = new MatchData(matchData.id);
         this["a"](str, jSONObject);
     };
 
@@ -1050,7 +1056,7 @@ Java.perform(() => {
                 allCardsStr.push(e._c.value);
             });
             const unknown_cards = allCardsStr.filter(item => !all_known_cards.includes(item));
-            known_cards.setMessage(!matchData.final_enemy_hand ? "Известные карты:\n" + formatSortedCards(sortCards(matchData.enemy_known_cards[place_id],getSuit(trump))) + "\nНеизвестные карты:\n" + formatSortedCards(sortCards(unknown_cards,getSuit(trump)))  : formatSortedCards(sortCards(matchData.enemy_hand_cards,getSuit(trump))));
+            known_cards.setMessage(matchData.enemy_hand_cards.length == 0 ? "Известные карты:\n" + formatSortedCards(sortCards(matchData.enemy_known_cards[place_id],getSuit(trump))) + "\nНеизвестные карты:\n" + formatSortedCards(sortCards(unknown_cards,getSuit(trump)))  : formatSortedCards(sortCards(matchData.enemy_hand_cards,getSuit(trump))));
             known_cards.show();
         });
     };

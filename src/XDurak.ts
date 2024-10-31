@@ -1,3 +1,3 @@
 export default class XDurak {
-    static VERSION: string = '2';
+    static VERSION: string = '3';
 }
