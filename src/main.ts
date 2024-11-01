@@ -1,4 +1,5 @@
 import XDurak from "./XDurak.js";
+import {Durak} from "./RSTGAMES.js";
 
 const runTime = new Date();
 import { CheckBox, DialogBuilder, EditText, LayoutParams, LinearLayout, TextView, View } from './AndroidBasic.js';
@@ -356,79 +357,61 @@ Java.perform(() => {
     } catch {}
 
 
-    const JGdx = Java.use('com.badlogic.gdx.Gdx');
-    const StartActivity = Java.use("com.rstgames.durak.StartActivity");
-    const auth_cancel_handler = Java.use("com.rstgames.durak.StartActivity$b");
-    const TCPServer = Java.use("com.rstgames.net.f");
-    const GameController = Java.use("com.rstgames.b");
-    const Screen = Java.use("com.badlogic.gdx.Screen");
-    const Game = Java.use("com.badlogic.gdx.Game");
-    const ScreenUtils = Java.use("com.badlogic.gdx.utils.ScreenUtils");
-    const Group = Java.use("com.badlogic.gdx.scenes.scene2d.Group");
-    const Settings = Java.use("com.rstgames.uiscreens.q");
-    const Graphics = Java.use("com.badlogic.gdx.Graphics");
-    const k = Java.use("com.rstgames.durak.screens.CreateGameScreen$k")
-    const ScreenViewport = Java.use("com.badlogic.gdx.utils.viewport.ScreenViewport");
-    const Stage = Java.use("com.badlogic.gdx.scenes.scene2d.Stage");
-    const a0 = Java.use("com.rstgames.utils.a0");
-    const AppController = Java.use("com.rstgames.AppController");
-    const Label = Java.use("com.badlogic.gdx.scenes.scene2d.ui.Label");
-    const LabelStyle = Java.use("com.badlogic.gdx.scenes.scene2d.ui.Label$LabelStyle");
-    const JString = Java.use("java.lang.String")
-    const GDXColor = Java.use("com.badlogic.gdx.graphics.Color");
-    const BitmapFont = Java.use("com.badlogic.gdx.graphics.g2d.BitmapFont");
-    const c = Java.use("com.rstgames.durak.screens.c");
-    const JColor = Java.use('android.graphics.Color');
-    const InputEvent = Java.use("com.badlogic.gdx.scenes.scene2d.InputEvent");
-    const JoinToGameClickListener = Java.use("com.rstgames.durak.screens.c$e$a");
-    const ListPublicGames = Java.use("com.rstgames.durak.screens.c");
-    const Logger = Java.use("com.badlogic.gdx.utils.Logger");
-    const SearchController = Java.use("com.rstgames.durak.controllers.a");
-    const b0 = Java.use("com.rstgames.utils.b0");
-    const RSTAssetPosition = Java.use("com.rstgames.utils.RSTAssetPosition");
-    let ASSET_STATE = Java.use("com.rstgames.utils.RSTAssetPosition$ASSET_STATE");
-    const MoreGames = Java.use("com.rstgames.uiscreens.m");
-    const textLabel = Java.use("com.rstgames.utils.a0");
-    const ClickListener = Java.use("com.badlogic.gdx.scenes.scene2d.utils.ClickListener");
-    const ListPrivateGames = Java.use("com.rstgames.durak.screens.d");
-    const Texture = Java.use("com.badlogic.gdx.graphics.Texture");
-    const TextureRegionDrawable = Java.use("com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable");
-    const Image = Java.use("com.badlogic.gdx.scenes.scene2d.ui.Image");
-    const MatchScreen = Java.use("com.rstgames.durak.screens.b");
-    const MainScreen = Java.use("com.rstgames.uiscreens.l");
-    const SearchFilter = Java.use("com.rstgames.durak.screens.a");
-    const discard_packet_handler = Java.use("com.rstgames.durak.screens.b$x0");
-    const g_packet_handler = Java.use("com.rstgames.durak.screens.c$e");
-    const game_packet_handler = Java.use("com.rstgames.durak.screens.b$i");
-    const JSONObject = Java.use("org.json.b");
-    const JSONArray = Java.use("org.json.a");
-    const DiscardClickListener = Java.use("com.rstgames.durak.utils.a$c");
-    const JsonIpServerConnector = Java.use("com.rstgames.net.JsonIpServerConnector");
-    const features_handler = Java.use("com.rstgames.durak.screens.b$j");
-    const enemy_pickup_card_animate_l = Java.use("com.rstgames.durak.screens.b$o0$l");
-    const enemy_pickup_card_animate_a = Java.use("com.rstgames.durak.screens.b$o0$a");
-    const animate_t = Java.use("com.rstgames.durak.screens.b$p0$a");
-    const animate_b_c_card = Java.use("com.rstgames.durak.screens.b$s0$a");
-    const d0 = Java.use("com.rstgames.durak.screens.b$d0");
-    const o0 = Java.use("com.rstgames.durak.screens.b$f0");
-    const GAME_STATE = Java.use("com.rstgames.durak.controllers.GameController$GAME_STATE");
-    const utils_4_cards = Java.use("com.rstgames.durak.utils.d");
-    const end_turn_handler = Java.use("com.rstgames.durak.screens.b$o0");
-    const mode_handler = Java.use("com.rstgames.durak.screens.b$m0");
-    const j0 = Java.use("com.rstgames.durak.screens.b$j0");
-    const win_handler = Java.use("com.rstgames.durak.screens.b$g1");
-    const Toast = Java.use("android.widget.Toast");
-    const CARD_VIEW_TYPE = Java.use("com.rstgames.durak.utils.Card$CARD_VIEW_TYPE");
-    const ShopAssets = Java.use("com.rstgames.uiscreens.d");
+    const JGdx = Durak.JGdx;
+    const StartActivity = Durak.StartActivity;
+    const auth_cancel_handler = Durak.auth_cancel_handler;
+    const GameController = Durak.GameController;
+    const Game = Durak.Game;
+    const JString = Durak.JString;
+    const InputEvent = Durak.InputEvent;
+    const JoinToGameClickListener = Durak.JoinToGameClickListener;
+    const ListPublicGames = Durak.ListPublicGames;
+    const Logger = Durak.Logger;
+    const SearchController = Durak.SearchController;
+    const MainScreenProfile = Durak.MainScreenProfile;
+    const ClickListener = Durak.ClickListener;
+    const Texture = Durak.Texture;
+    const Image = Durak.Image;
+    const MatchScreen = Durak.MatchScreen;
+    const SearchFilter = Durak.SearchFilter;
+    const g_packet_handler = Durak.g_packet_handler;
+    const game_packet_handler = Durak.game_packet_handler;
+    const JSONObject = Durak.JSONObject;
+    const JSONArray = Durak.JSONArray;
+    const DiscardClickListener = Durak.DiscardClickListener;
+    const JsonIpServerConnector = Durak.JsonIpServerConnector;
+    const features_handler = Durak.features_handler;
+    const enemy_pickup_card_animate_l = Durak.enemy_pickup_card_animate_l;
+    const enemy_pickup_card_animate_a = Durak.enemy_pickup_card_animate_a;
+    const utils_4_cards = Durak.utils_4_cards;
+    const end_turn_handler = Durak.end_turn_handler;
+    const mode_handler = Durak.mode_handler;
+    const drag_n_beat = Durak.drag_n_beat;
+    const win_handler = Durak.win_handler;
+    const Toast = Durak.Toast;
+    const CARD_VIEW_TYPE = Durak.CARD_VIEW_TYPE;
+    const ShopAssets = Durak.ShopAssets;
+    const cheater_card_click_listener = Durak.cheater_card_click_listener;
+    const RSTGamePlaceOnClick = Durak.RSTGamePlaceOnClick;
+    const PLACE_TYPE = Durak.PLACE_TYPE;
+    const btn_ready_on_handler = Durak.btn_ready_on_handler;
+    const MainScreenAvatarClickListener = Durak.MainScreenAvatarClickListener;
+    const game_reset_handler = Durak.game_reset_handler;
+    const b_handler = Durak.b_handler;
+    const tfs_handler = Durak.tfs_handler;
+    const smile_handler = Durak.smile_handler;
+    const RSTGamePlace = Durak.RSTGamePlace;
+    const cp_handler = Durak.cp_handler;
 
     function show_menu(){
         Java.scheduleOnMainThread(() => {
-            const startActivity = Java.cast(JGdx.app.value,StartActivity);
-            const gameController = Java.cast(startActivity.getApplicationListener(),GameController);
-            const classname = gameController.getScreen().$className;
+            const startActivity = new Durak.startActivity(JGdx.app.value);
+            const activityInstance = startActivity.instance;
+            const gameController = new Durak.gameController(startActivity.applicationListener);
+            const classname = gameController.screen.$className;
             if (classname == "com.rstgames.durak.screens.a") {
-                const searchDialog = new DialogBuilder(startActivity);
-                const searchInput = new EditText(startActivity,"","Нужная ставка");
+                const searchDialog = new DialogBuilder(activityInstance);
+                const searchInput = new EditText(activityInstance,"","Нужная ставка");
                 searchDialog.setTitle("Точный поиск");
                 searchDialog.setView(searchInput);
                 searchDialog.setPositiveButton("Применить",(d,w) => {
@@ -442,7 +425,7 @@ Java.perform(() => {
                 }
                 searchDialog.show();
             } else if (classname == "com.rstgames.durak.screens.c") {
-                const connectToFirstGameDialog = new DialogBuilder(startActivity);
+                const connectToFirstGameDialog = new DialogBuilder(activityInstance);
                 connectToFirstGameDialog.setTitle("Подключиться к первой новой игре?")
                 if (mpf.connect_to_first_game){
                     connectToFirstGameDialog.setMessage("(Включено)")
@@ -457,20 +440,20 @@ Java.perform(() => {
                 })
                 connectToFirstGameDialog.show();
             } else if (classname == "com.rstgames.durak.screens.b") {
-                const matchScreen = gameController._N.value;
-                const matchController = matchScreen._w.value;
-                const cardsController = matchScreen._x.value;
-                const ch = matchController.j?.value ?? false;
+                const matchScreen = new Durak.matchScreen(gameController.screen);
+                const matchController = matchScreen.matchController;
+                // const cardsController = new Durak.cardsController(matchScreen.cardsController);
+                const ch = matchController.ch ?? false;
 
-                const settingsDialogB = new DialogBuilder(startActivity);
-                const layout = new LinearLayout(startActivity);
-                const watch_cards_checkbox = new CheckBox(startActivity,"Просмотр карт (Заменяет просмотр профиля)",mpf.watch_cards);
-                const highlight_checkbox = new CheckBox(startActivity, "Подсвечивать карты", mpf.highlight);
-                const auto_category = new TextView(startActivity,"Автоматизация: ");
-                const auto_ready_checkbox = new CheckBox(startActivity,"Автоматически подтверждать игру",mpf.auto_ready);
-                const auto_done_checkbox = new CheckBox(startActivity,"Автоматически заканчивать Пас/Готов, если нет карт",mpf.auto_done);
-                const auto_take_checkbox = new CheckBox(startActivity,"Автоматически подбирать карты, если нет карт", mpf.auto_take);
-                const auto_beat_checkbox = new CheckBox(startActivity,"Автоматически отбиваться, если есть карты", mpf.auto_beat);
+                const settingsDialogB = new DialogBuilder(activityInstance);
+                const layout = new LinearLayout(activityInstance);
+                const watch_cards_checkbox = new CheckBox(activityInstance,"Просмотр карт (Заменяет просмотр профиля)",mpf.watch_cards);
+                const highlight_checkbox = new CheckBox(activityInstance, "Подсвечивать карты", mpf.highlight);
+                const auto_category = new TextView(activityInstance,"Автоматизация: ");
+                const auto_ready_checkbox = new CheckBox(activityInstance,"Автоматически подтверждать игру",mpf.auto_ready);
+                const auto_done_checkbox = new CheckBox(activityInstance,"Автоматически заканчивать Пас/Готов, если нет карт",mpf.auto_done);
+                const auto_take_checkbox = new CheckBox(activityInstance,"Автоматически подбирать карты, если нет карт", mpf.auto_take);
+                const auto_beat_checkbox = new CheckBox(activityInstance,"Автоматически отбиваться, если есть карты", mpf.auto_beat);
                 watch_cards_checkbox.setCheckedChangeListener((b,isChecked) => {
                     mpf.watch_cards = isChecked;
                 });
@@ -492,16 +475,16 @@ Java.perform(() => {
                 layout.setOrientation("VERTICAL");
                 layout.addViews([watch_cards_checkbox,highlight_checkbox,auto_category,auto_ready_checkbox,auto_done_checkbox,auto_take_checkbox]);
                 if (ch) {
-                    const cheater_category = new TextView(startActivity, "Шулер: ")
-                    const toast_cheater_checkbox = new CheckBox(startActivity, "Отображать сообщение о шулере",mpf.toast_cheater);
+                    const cheater_category = new TextView(activityInstance, "Шулер: ")
+                    const toast_cheater_checkbox = new CheckBox(activityInstance, "Отображать сообщение о шулере",mpf.toast_cheater);
                     toast_cheater_checkbox.setCheckedChangeListener((b,isChecked) => {
                         mpf.toast_cheater = isChecked;
                     });
-                    const grey_card_cheater_checkbox = new CheckBox(startActivity, "Помечать серым нечестную карту",mpf.grey_card_cheater);
+                    const grey_card_cheater_checkbox = new CheckBox(activityInstance, "Помечать серым нечестную карту",mpf.grey_card_cheater);
                     grey_card_cheater_checkbox.setCheckedChangeListener((b,isChecked) => {
                         mpf.grey_card_cheater = isChecked;
                     });
-                    const autoclick_cheater_checkbox = new CheckBox(startActivity, "Автоматически нажимать на нечестную карту",mpf.autoclick_cheater);
+                    const autoclick_cheater_checkbox = new CheckBox(activityInstance, "Автоматически нажимать на нечестную карту",mpf.autoclick_cheater);
                     autoclick_cheater_checkbox.setCheckedChangeListener((b,isChecked) => {
                         mpf.autoclick_cheater = isChecked;
                     });
@@ -518,24 +501,24 @@ Java.perform(() => {
                 // known_cards.setMessage(matchData.enemy_hand_cards.length > 0 ? matchData.enemy_hand_cards.join(" - ") : matchData.enemy_known_cards.join(" - "));
                 // known_cards.show();
             } else if (classname == "com.rstgames.uiscreens.d") {
-                const skinSettingsDialogB = new DialogBuilder(startActivity);
-                const layout = new LinearLayout(startActivity); layout.setOrientation("VERTICAL");
-                const desc = new TextView(startActivity,"Введите id скина в правильном поле или оставьте пустым, чтобы не заменять.\nВсе изменения видны только вам.")
-                const smile_editText = new EditText(startActivity, mpf.smile, "smile_classic");
-                const shirt_editText = new EditText(startActivity, mpf.shirt, "shirt_classic");
-                const frame_editText = new EditText(startActivity, mpf.frame, "frame_classic");
+                const skinSettingsDialogB = new DialogBuilder(activityInstance);
+                const layout = new LinearLayout(activityInstance); layout.setOrientation("VERTICAL");
+                const desc = new TextView(activityInstance,"Введите id скина в правильном поле или оставьте пустым, чтобы не заменять.\nВсе изменения видны только вам.")
+                const smile_editText = new EditText(activityInstance, mpf.smile, "smile_classic");
+                const shirt_editText = new EditText(activityInstance, mpf.shirt, "shirt_classic");
+                const frame_editText = new EditText(activityInstance, mpf.frame, "frame_classic");
                 layout.addViews([desc,smile_editText,shirt_editText,frame_editText]);
                 skinSettingsDialogB.setTitle("Скинченджер");
                 skinSettingsDialogB.setView(layout);
                 skinSettingsDialogB.setPositiveButton("OK",()=>{
-                    const tcpServer = gameController._d.value;
+                    const tcpServer = gameController.tcpServer;
+                    const json = new Durak.jSONObject();
                     mpf.smile = smile_editText.getText();
                     mpf.shirt = shirt_editText.getText();
                     mpf.frame = frame_editText.getText();
-                    const json = JSONObject.$new();
-                    json.N("v",mpf.frame);
-                    json.N("k","frame")
-                    tcpServer.h("uu", json)
+                    json.put_object("v",mpf.frame);
+                    json.put_object("k","frame");
+                    tcpServer.recv("uu", json.instance)
                 });
                 skinSettingsDialogB.show();
             }
@@ -550,25 +533,27 @@ Java.perform(() => {
     };
 
     // функция для получения минимальной ставки
-    SearchController["b"].implementation = function () {
-        let result = this["b"]();
+    Durak.searchController.minBet.implementation = function () {
+        const searchController = new Durak.searchController(this);
+        let result = searchController.minBet();
         if (mpf.accurate_search > 0){result = mpf.accurate_search} // замена мин и макс ставки для точного поиска
         return result;
     };
     // функция для получения максимальной ставки
-    SearchController["e"].implementation = function () {
-        let result = this["e"]();
+    Durak.searchController.maxBet.implementation = function () {
+        const searchController = new Durak.searchController(this);
+        let result = searchController.maxBet();
         if (mpf.accurate_search > 0){result = mpf.accurate_search} // замена мин и макс ставки для точного поиска
         return result;
     };
 
     function inject_mod_menu(this: Java.Wrapper) {
         this["show"]();
-        const app = JGdx.app.value;
+        const startActivity = new Durak.startActivity(JGdx.app.value);
         const files = JGdx.files.value;
         const graphics = JGdx.graphics.value;
-        const gameController = Java.cast(app.getApplicationListener(), GameController);
-        const stageInstance = gameController.a0.value;
+        const gameController = new Durak.gameController(startActivity.applicationListener);
+        const stageInstance = gameController.stage;
 
         // Создаем текстуру кнопки
         const buttonTexture = Texture.$new(files.internal("data/general_textures/achieves_and_assets/cheat_success/icon.png"), true);
@@ -596,41 +581,42 @@ Java.perform(() => {
 
     }
     
-    StartActivity["onCreate"].implementation = function (bundle: Java.Wrapper) {
+    Durak.startActivity.onCreate.implementation = function (this: Java.Wrapper,bundle: Java.Wrapper) {
+        const startActivity = new Durak.startActivity(this);
         mpf = new ModPreferences(this);
-        this["onCreate"](bundle);
-        const startActivity = Java.retain(this);
+        startActivity.onCreate(bundle);
         if (mpf.script_update.old < mpf.script_update.new) {
             Java.scheduleOnMainThread(() => {
-                Toast.makeText(startActivity,JString.$new(`XDurak Script: ${mpf.script_update.old} => ${mpf.script_update.new}`), Toast.LENGTH_SHORT.value).show();
+                Toast.makeText(startActivity.instance,JString.$new(`XDurak Script: ${mpf.script_update.old} => ${mpf.script_update.new}`), Toast.LENGTH_SHORT.value).show();
             })
         }
     };
-    StartActivity["p"].implementation = function (click_handler: Java.Wrapper, header: string, positive: string, negative: string, cancelable: boolean) {
-        if (click_handler.$className == "com.rstgames.durak.StartActivity$b") {
+    Durak.startActivity.YesOrNoDialog.implementation = function (click_handler: Java.Wrapper, header: string, positive: string, negative: string, cancelable: boolean) {
+        const startActivity = new Durak.startActivity(this);
+        if (click_handler.$className == Durak.auth_cancel_handler.$className) {
             header = "Способ входа:";
             negative = "Токен";
             positive = "Гугл";
         }
-        this["p"](click_handler, header, positive, negative, cancelable);
+        startActivity.YesOrNoDialog(click_handler, header, positive, negative, cancelable);
     };
     // Negative | Выйти | Токен
-    auth_cancel_handler["b"].implementation = function (this: Java.Wrapper) { 
-        const startActivity = this._a.value;
-        const dialog = new DialogBuilder(startActivity);
-        const edittext = new EditText(startActivity);
-        const gameController = startActivity._a.value;
+    Durak.startActivity.auth_cancel_handler.negative.implementation = function (this: Java.Wrapper) {
+        const startActivity = new Durak.startActivity(this);
+        const dialog = new DialogBuilder(startActivity.instance);
+        const edittext = new EditText(startActivity.instance);
+        const gameController = startActivity.gameController;
         edittext.setHint("Токен");
         dialog.setTitle("Введите токен");
         dialog.setView(edittext);
         dialog.setPositiveButton("ОК", (dialog,which) => {
             const token = edittext.getText();
-            startActivity["A"](token); // сохранение токена в shared preferences
+            startActivity.set_token(token); // сохранение токена в shared preferences
             if (gameController != null) {
-                const tcpServer = gameController._d?.value;
-                if (tcpServer != null || tcpServer != undefined) {
-                    tcpServer._w.value = token; // сохранение токена в нынешней сессии 
-                    tcpServer.u(false); // авторизация
+                const tcpServer = gameController.tcpServer;
+                if (tcpServer.instance != null || tcpServer.instance != undefined) {
+                    tcpServer.token = token; // сохранение токена в нынешней сессии
+                    tcpServer.auth(false); // авторизация
                 }
             }
         })
@@ -644,9 +630,10 @@ Java.perform(() => {
     };
 
 
-    let MainScreenAvatarClickListener = Java.use("com.rstgames.utils.b0$a");
-    MainScreenAvatarClickListener["clicked"].implementation = function (inputEvent: Java.Wrapper, f: number, f2: number) {
-        this["clicked"](inputEvent, f, f2);
+
+    Durak.clickListener.get_clicked(MainScreenAvatarClickListener).implementation = function (inputEvent: Java.Wrapper, f: number, f2: number) {
+        const clickListener = new Durak.clickListener(this);
+        clickListener.clicked(inputEvent, f, f2);
         Java.scheduleOnMainThread(() => {
             const startActivity = JGdx.app.value;
             const dialogb = new DialogBuilder(startActivity);
@@ -670,64 +657,71 @@ Java.perform(() => {
     // добавление на экраны кнопки мод меню
 
     // MainScreen["show"].implementation = inject_mod_menu;
-    SearchFilter["show"].implementation = inject_mod_menu;
-    ListPublicGames["show"].implementation = inject_mod_menu;
-    MatchScreen["show"].implementation = inject_mod_menu;
-    ShopAssets["show"].implementation = inject_mod_menu;
+    Durak.searchFilter.show.implementation = inject_mod_menu;
+    Durak.listPublicGames.show.implementation = inject_mod_menu;
+    Durak.matchScreen.show.implementation = inject_mod_menu;
+    Durak.shopAssets.show.implementation = inject_mod_menu;
     
     // обработка пакета "g"
-    g_packet_handler["a"].implementation = function (this:Java.Wrapper,str: string, jSONObject: Java.Wrapper) {
-        this["a"](str, jSONObject);
+    Durak.packetHandler.get_packet_received(g_packet_handler).implementation = function (this:Java.Wrapper, str: string, jSONObject: Java.Wrapper) {
+        Durak.packetHandler.get_packet_received(g_packet_handler).call(this, str, jSONObject);
         if (mpf.connect_to_first_game) {
             const clickListener = JoinToGameClickListener.$new(this,jSONObject);
-            clickListener.clicked(InputEvent.$new(),0,0);
+            Durak.clickListener.get_clicked(clickListener)(InputEvent.$new(),0,0);
             mpf.connect_to_first_game = false;
         }
         
     };
 
     // получение данных о матче
-    game_packet_handler["a"].implementation = function (str: string, jSONObject: Java.Wrapper) {
-        matchData = new MatchData(jSONObject.g('id'));
-        // const players = jSONObject.B("players");
-        // for (let i = 0; i < players; i++) {
-        //     matchData.enemy_known_cards[i] = [];
-        // }
-        this["a"](str, jSONObject);
+    Durak.packetHandler.get_packet_received(game_packet_handler).implementation = function (str: string, jSONObject: Java.Wrapper) {
+        const packetHandler = new Durak.packetHandler(this);
+        const json = new Durak.jSONObject(jSONObject);
+        matchData = new MatchData(json.opt_int("id"));
+        packetHandler.packet_received(str, jSONObject);
+
     };
 
-    let game_reset_handler = Java.use("com.rstgames.durak.screens.b$i1");
-    game_reset_handler["a"].implementation = function (str: string, jSONObject: Java.Wrapper) {
+    Durak.packetHandler.get_packet_received(game_reset_handler).implementation = function (str: string, jSONObject: Java.Wrapper) {
+        const packetHandler = new Durak.packetHandler(this);
         matchData = new MatchData(matchData.id);
-        this["a"](str, jSONObject);
+        packetHandler.packet_received(str, jSONObject);
     };
 
-    DiscardClickListener["clicked"].implementation = function (inputEvent: Java.Wrapper, f: number, f2: number) {
-        this["clicked"](inputEvent, f, f2);
-        const net_instance = this.a.value._a.value.E(); // TCPServer
-        const discard_json = JSONObject.$new();
-        const discard_array = JSONArray.$new();
-        matchData.discard_cards.forEach((e) => {
-            discard_array['x'](e); // .push
-        });
-        discard_json.N("c",discard_array);
-        net_instance["h"]("discard",discard_json);
+    Durak.clickListener.get_clicked(DiscardClickListener).implementation = function (inputEvent: Java.Wrapper, f: number, f2: number) {
+        const clickListener = new Durak.clickListener(this);
+        clickListener.clicked(inputEvent, f, f2);
+        if (clickListener.outerInstance.instance.$className == Durak.MatchScreen.$className) {
+            const matchScreen = new Durak.matchScreen(clickListener.outerInstance.instance);
+            const net_instance = matchScreen.gameController.tcpServer; // TCPServer
+            const discard_json = new Durak.jSONObject();
+            const discard_array = new Durak.jSONArray();
+            matchData.discard_cards.forEach((e) => {
+                discard_array.push(e); // .push
+            });
+            discard_json.put_object("c",discard_array);
+            net_instance.recv("discard",discard_json.instance);
+        }
+
     };
 
-    JsonIpServerConnector["o"].implementation = function (str: string) {
+    Durak.jsonIpServerConnector.sendOnlyStr.implementation = function (str: string) {
+        const tcpServer = new Durak.jsonIpServerConnector(this);
         if (str === "show_discard") {
             // блокировка отправки пакета на покупку отображения битых карт
             return
         }
-        this["o"](str);
+        tcpServer.sendOnlyStr(str);
     };
 
     //обработка пакета "features"
-    features_handler["a"].implementation = function (str: string, jSONObject: Java.Wrapper) {
+    Durak.packetHandler.get_packet_received(features_handler).implementation = function (str: string, jSONObject: Java.Wrapper) {
         // редактирование цен на 0
-        jSONObject.L("dis",0);
-        jSONObject.L("hl",0);
-        this["a"](str, jSONObject);
+        const json = new Durak.jSONObject(jSONObject);
+        const packetHandler = new Durak.packetHandler(this);
+        json.put_int("dis",0);
+        json.put_int("hl",0);
+        packetHandler.packet_received(str, jSONObject);
     };
     
     function enemy_pickup_card_animate(this: Java.Wrapper){
@@ -790,9 +784,7 @@ Java.perform(() => {
     };
     // animate_t["run"].implementation = enemy_drop_card_animate;
     // animate_b_c_card["run"].implementation = enemy_drop_card_animate;
-    let b_handler = Java.use("com.rstgames.durak.screens.b$s0");
     b_handler["a"].implementation = enemy_drop_card_handler;
-    let tfs_handler = Java.use("com.rstgames.durak.screens.b$p0");
     tfs_handler["a"].implementation = enemy_drop_card_handler;
     // обработка пакета "end_turn"
     end_turn_handler["a"].implementation = function (str: string, jSONObject: Java.Wrapper) {
@@ -864,6 +856,7 @@ Java.perform(() => {
             }
                 
         };
+        // aka get_tcpServer
         gameController.E().h('hl',hl_json);
     }
 
@@ -891,7 +884,7 @@ Java.perform(() => {
         matchData.cards_on_table_active = matchData.cards_on_table.filter(item => !matchData.cards_on_table_bito.includes(item));
         const gameController = matchScreen._a.value;
         const matchController = matchScreen._w.value;
-        const d_utils = matchController.G.value;
+        const utils4cards = matchController.G.value;
         const cardsController = matchScreen._x.value;
         const trump = cardsController._i.value;        
         const my_place_id: number = matchController.z.value;
@@ -924,12 +917,11 @@ Java.perform(() => {
 
 
     }
-    j0["a"].implementation = function (i: number) {
-        console.log(`j0.a is called: i=${i}`);
+    drag_n_beat["a"].implementation = function (i: number) {
         this["a"](i);
     };
     // анимация и отправка пакета "t"
-    j0["b"].implementation = function (i: number) {
+    drag_n_beat["b"].implementation = function (i: number) {
         this["b"](i);
         highlight(this.i.value);
     };
@@ -998,8 +990,7 @@ Java.perform(() => {
         }
     };
 
-    let k0 = Java.use("com.rstgames.durak.screens.b$k0");
-    k0["$init"].implementation = function (w, i, str) {
+    cheater_card_click_listener["$init"].implementation = function (w, i, str) {
         this["$init"](w,i, str);
         const instance = Java.retain(this);
         if (mpf.autoclick_cheater) {
@@ -1011,8 +1002,6 @@ Java.perform(() => {
         }
     };
 
-    let RSTGamePlaceOnClick = Java.use("com.rstgames.durak.utils.RSTGamePlace$a");
-    let PLACE_TYPE = Java.use("com.rstgames.durak.utils.RSTGamePlace$PLACE_TYPE");
     RSTGamePlaceOnClick["clicked"].implementation = function (inputEvent: Java.Wrapper, f: number, f2: number) {
         const rstGamePlace = this.a.value; 
         const gameController = rstGamePlace._a.value;
@@ -1035,7 +1024,7 @@ Java.perform(() => {
             });
         }
         const trump = cardsController._i.value;
-        const place_type = rstGamePlace.G.value;    
+        const place_type = rstGamePlace.G.value;
         if (!mpf.watch_cards || place_type.toString() != PLACE_TYPE.c.value.toString()) {
             this["clicked"](inputEvent, f, f2);
             return
@@ -1060,7 +1049,6 @@ Java.perform(() => {
             known_cards.show();
         });
     };
-    let btn_ready_on_handler = Java.use("com.rstgames.durak.screens.b$y");
     btn_ready_on_handler["a"].implementation = function (str: string, jSONObject: Java.Wrapper) {
         this["a"](str, jSONObject);
         const matchScreen = this._a.value;
@@ -1078,7 +1066,6 @@ Java.perform(() => {
         this["V"]();
     };
 
-    let smile_handler = Java.use("com.rstgames.durak.screens.b$r");
     smile_handler["a"].implementation = function (str: string, jSONObject: Java.Wrapper) {
         const mod_smile = mpf.smile;
         const place_id = jSONObject.B("p");
@@ -1088,14 +1075,13 @@ Java.perform(() => {
         this["a"](str, jSONObject);
     };
 
-    b0["n"].implementation = function (frame_id: string) {
+    MainScreenProfile["n"].implementation = function (frame_id: string) {
         console.log(`b0.n is called: str=${frame_id}`);
 
         const mod_frame = mpf.frame;
         if (mod_frame != "") frame_id = mod_frame;
         this["n"](frame_id);
     };
-    let RSTGamePlace = Java.use("com.rstgames.durak.utils.RSTGamePlace");
     RSTGamePlace["h"].implementation = function (str: string, str2: string, frame_id: string, str4: string, player_id: number, j2: number, i: number, z: boolean, group: Java.Wrapper, image: Java.Wrapper) {
         const mod_frame = mpf.frame;
         const gameController = this._a.value;
@@ -1104,7 +1090,6 @@ Java.perform(() => {
         if (player_id.valueOf() == my_player_id.valueOf() && mod_frame != "") frame_id = mod_frame
         this["h"](str, str2, frame_id, str4, player_id, j2, i, z, group, image);
     };
-    let cp_handler = Java.use("com.rstgames.durak.screens.b$l");
     cp_handler["a"].implementation = function (str: string, jSONObject: Java.Wrapper) {
         const mod_shirt = mpf.shirt
         const shirt_json = jSONObject.E("shirt");
